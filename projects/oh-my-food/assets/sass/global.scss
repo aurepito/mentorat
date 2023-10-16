@@ -89,6 +89,7 @@ main {
                 li {
                     margin-bottom: 25px;
                     padding-left: 12px;
+                    counter-increment: listCounter;
 
                     a {
                         height: 73px;
@@ -104,7 +105,8 @@ main {
                             font-weight: 500;
                         }
 
-                        .num {
+                        &:before {
+                            content: counter(listCounter);
                             position: absolute;
                             height: 24px;
                             width: 24px;
@@ -158,12 +160,13 @@ main {
     
                     &-header {
 
+                        height: 230px;
                         position: relative;
                         z-index: 0;
 
                         img {
                             width: 100%;
-                            height: 230px;
+                            height: 100%;
                             object-fit: cover;
                         }
 
@@ -196,6 +199,10 @@ main {
                                 margin-bottom: 5px;
                             }
 
+                        }
+
+                        .heart-bg {
+                            background: blue;
                         }
 
                         img {
