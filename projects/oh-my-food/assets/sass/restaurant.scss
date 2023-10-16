@@ -1,0 +1,148 @@
+@import './abstract/theme';
+
+header {
+
+    position: relative;
+
+    a {
+
+        position: absolute;
+        top: 28px;
+        left: 12px;
+        transform: translateY(-50%);
+
+        img {
+            height: 30px;
+            width: 30px;
+        }
+
+    }
+
+}
+
+main {
+
+    display: flex;
+    flex-direction: column;
+
+    img {
+        height: 275px;
+        object-fit: cover;
+    }
+
+    #menu {
+
+        padding: 40px 13px 0 13px;
+        margin-top: -55px;
+        border-radius: 55px 55px 0 0;
+        background-color: var(--color-background);
+        position: relative;
+
+        #restaurant {
+
+            display: flex;
+            align-items: center;
+            position: relative;
+
+            h1 {
+                margin: 0;
+                color: #101010;
+                font-family: 'Shrikhand', sans-serif;
+                font-size: 28px;
+                font-weight: 400;
+            }
+
+            .like-button {
+                @include heart;
+                position: absolute;
+                right: 27px;
+            }
+
+        }
+
+        section {
+
+            margin-top: 28px;
+
+            h2 {
+                font-weight: 300;
+                text-transform: uppercase;
+                font-size: 16px;
+                color: #000;
+                position: relative;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: relative;
+                    height: 3px;
+                    width: 40px;
+                    left: 0;
+                    margin-top: 10px;
+                    background: #99E2D0;
+                }
+            }
+
+            ul {
+
+                list-style: none;
+                padding-left: 0;
+                margin: 12px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                li {
+
+                    .card {
+
+                        padding: 15px;
+                        border-radius: 15px;
+                        background: #fff;
+                        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.10);
+
+                        &-header {
+
+                            color: #000;
+                            font-size: 18px;
+                            font-weight: 500;
+                            margin-bottom: 5px;
+
+                        }
+
+                        &-body {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            span {
+                                font-size: 15px;
+                                font-weight: 300;
+
+                                &.price {
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            &#order {
+
+                padding-top: 12px;
+                padding-bottom: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+        }
+
+    }
+
+}

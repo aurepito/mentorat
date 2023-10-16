@@ -5,6 +5,7 @@
     border: 0;
     box-sizing: border-box;
     height: 50px;
+    min-width: 186px;
     font-size: 16px;
     font-weight: 500;
     color: #FFF;
@@ -33,4 +34,34 @@
         }
     }
 
+}
+
+@mixin heart {
+    position: relative;
+    height: 21px;
+    width: 22px;
+
+    img {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        transition: .3s ease-out;
+        opacity: 1;
+    }
+
+    .liked {
+        opacity: 0;
+    }
+
+    &:hover {
+        .like {
+            opacity: 0;
+        }
+        .liked {
+            opacity: 1;
+        }
+    }
 }

@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .15);
+    position: relative;
+    z-index: 1;
+
+    img {
+        width: 162px;
+        margin: 23px auto 12px;
+    }
+}
