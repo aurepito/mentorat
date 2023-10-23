@@ -21,6 +21,7 @@ footer {
         display: flex;
         flex-direction: column;
         gap: 7px;
+        list-style: none;
 
         .link-icon {
 
@@ -41,6 +42,40 @@ footer {
 
         }
 
+    }
+
+}
+
+@media (min-width: 768px) {
+
+    footer {
+    
+        padding: 30px 25px;
+        height: 54px;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: end;
+    
+        .title {
+    
+            margin-left: 90px;
+            margin-right: 41px;
+    
+        }
+    
+        ul {
+    
+            margin-top: 0;
+            flex-direction: row;
+    
+            li:nth-child(2) {
+                
+                margin-right: 45px;
+    
+            }
+    
+        }
+    
     }
 
 }

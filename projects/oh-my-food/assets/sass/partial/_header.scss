@@ -10,3 +10,12 @@ header {
         margin: 23px auto 12px;
     }
 }
+
+@media (min-width: 768px) {
+    header {
+        img {
+            height: 34px;
+            margin: 30px auto;
+        }
+    }
+}
