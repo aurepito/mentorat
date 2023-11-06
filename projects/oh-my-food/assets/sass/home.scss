@@ -12,7 +12,7 @@ body {
         background-color: rgba(0, 0, 0, .5);
         backdrop-filter: blur(5px);
         z-index: 10;
-        animation: fadeout forwards .5s .5s;
+        animation: fadeout linear .5s .5s forwards;
     }
     &:after {
         content:'';
@@ -25,17 +25,15 @@ body {
         border-radius: 50%;
         z-index: 20;
         animation:
-            rotate linear infinite 1s,
-            fadeout forwards .5s .5s;
+            rotate linear 1s infinite,
+            fadeout linear .5s .5s forwards;
     }
     @keyframes rotate {
           0% { transform: rotate(  0deg); }
         100% { transform: rotate(360deg); }
     }
     @keyframes fadeout {
-        0%   { opacity:  1; }
-        50%  { opacity: .5; }
-        100% { opacity:  0; display: none; }
+        to { opacity: 0; visibility: hidden; }
     }
 }
 
