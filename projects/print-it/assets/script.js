@@ -41,7 +41,7 @@ function updateBanner(index) {
 	if(currentIndex > (slides.length - 1)){ currentIndex = 0; }
 
 	bannerImg.src = `assets/images/slideshow/${slides[currentIndex].image}`;
-	bannerText.innerHTML = slides[index].tagLine;
+	bannerText.innerHTML = slides[currentIndex].tagLine;
 	setCurrentDot(currentIndex);
 }
 
