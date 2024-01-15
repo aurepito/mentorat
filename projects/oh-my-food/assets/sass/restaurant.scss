@@ -94,7 +94,7 @@ main {
                             color: #000;
                             font-size: 18px;
                             font-weight: 500;
-                            margin-bottom: 5px;
+                            margin: 5px 0;
 
                         }
 
@@ -143,15 +143,15 @@ main {
 
             }
 
-            &#order {
+        }
 
-                padding-top: 12px;
-                padding-bottom: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+        #order {
 
-            }
+            padding-top: 12px;
+            padding-bottom: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
         }
 
