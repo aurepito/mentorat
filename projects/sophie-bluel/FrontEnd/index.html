@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<title>Sophie Bluel - Architecte d'intérieur TEST</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +36,9 @@
 	</section>
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
+		<nav id="categories">
+			<ul></ul>
+		</nav>
 		<div class="gallery">
 			<figure>
 				<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
@@ -105,5 +108,79 @@
 		</ul>
 	</nav>
 </footer>
+<script type="module">
+	// Definitions
+	const api_url = 'http://localhost:5678/api/';
+
+	const categories_call = await fetch(api_url + 'categories');
+	const categories = await categories_call.json();
+
+	const works_call = await fetch(api_url + 'works');
+	const works = await works_call.json();
+
+	const categoryNav = document.querySelector('#categories > ul');
+	const gallery = document.querySelector('.gallery');
+
+	let currentCategoryId = 0;
+
+	// Methods
+	function createCategoryElement(category) {
+		let element = document.createElement('li');
+			element.dataset.category = category.id;
+			element.innerHTML = category.name;
+			element.addEventListener('click', function(e) {
+				toggleCategoryWorks(e.target.dataset.category);
+			});
+
+		return element;
+	}
+
+	function createWorkElement(work) {
+		let element = document.createElement('figure');
+			element.dataset.category = work.categoryId;
+			element.innerHTML = `
+				<img src="${work.imageUrl}" alt="${work.title}">
+				<figcaption>${work.title}</figcaption>
+			`;
+
+		return element;
+	}
+
+	function toggleCategoryWorks(categoryId) {
+		if(categoryId == currentCategoryId) {
+			return;
+		}
+
+		categoryNav.querySelector(`li[data-category="${currentCategoryId}"]`).classList.remove('active');
+
+		currentCategoryId = categoryId;
+
+		categoryNav.querySelector(`li[data-category="${currentCategoryId}"]`).classList.add('active');
+
+		gallery.querySelectorAll('figure').forEach(work => {
+			if(categoryId == 0 || categoryId > 0 && work.dataset.category == categoryId){
+				work.style.display = 'block';
+			} else {
+				work.style.display = 'none';
+			}
+		})
+	}
+
+	// Init
+	let allCategoriesElement = createCategoryElement({id: 0, name: 'Tous'});
+	allCategoriesElement.classList.add('active');
+	categoryNav.appendChild(allCategoriesElement);
+
+	categories.forEach((category) => {
+		let categoryElement = createCategoryElement(category);
+		categoryNav.appendChild(categoryElement);
+	})
+
+	gallery.innerHTML = '';
+	works.forEach((work) => {
+		let workElement = createWorkElement(work);
+		gallery.appendChild(workElement);
+	});
+</script>
 </body>
 </html>

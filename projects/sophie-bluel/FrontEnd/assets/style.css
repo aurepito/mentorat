@@ -125,6 +125,31 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+/* Categories Nav */
+#categories ul {
+	justify-content: center;
+	margin: 50px auto;
+}
+#categories li {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #1D6154;
+	margin: auto 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 10px 25px;
+	border-radius: 60px;
+	border: 1px solid #1D6154;
+	cursor: pointer;
+}
+#categories li:hover,
+#categories li.active {
+	background-color: #1D6154;
+	color: white;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
